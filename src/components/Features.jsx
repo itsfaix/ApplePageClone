@@ -24,8 +24,8 @@ const ModelScroll = () => {
       Object.assign(v, {
         src: item.videoPath,
         muted: true,
-        playsinline: true,
-        preloed: "auto",
+        playsInline: true,
+        preloed: 'auto',
         crossOrigin: "anonymous",
       });
 

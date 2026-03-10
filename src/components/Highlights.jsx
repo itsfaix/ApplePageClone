@@ -4,7 +4,8 @@ import gsap from 'gsap'
 import { useMediaQuery } from 'react-responsive'
 
 const Highlights = () => {
-  const isMobile = useMediaQuery({ query: '(max-width: 1024)'})
+  const isMobile = useMediaQuery({ query: '(max-width: 1024)' })
+  const sectionRef = React.useRef(null)
 
   useGSAP(() => {
     gsap.to(['.left-column', '.right-column'], {
@@ -18,10 +19,10 @@ const Highlights = () => {
       duration: 2,
       ease: 'power1.inOut',
     })
-  })
+  }, { scope: sectionRef, dependencies: [isMobile], revertOnUpdate: true })
 
   return (
-    <section id='highlights'>
+    <section id='highlights' ref={sectionRef}>
       <h2>There’s never been a better time to upgrade.</h2>
       <h3>Here’s what you get with the new MacBook Pro.</h3>
       <div className='masonry'>
